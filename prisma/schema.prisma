@@ -1,0 +1,18 @@
+// schema.prisma
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Conversation {
+  id        String  @id @default(cuid()) @map("_id")// MongoDB requires _id field to be of type String @db.ObjectId @db.ObjectId
+  userId    String
+  role      String   // 'user' or 'model'
+  text      String
+  aiResponse String? // AI's response
+  createdAt DateTime @default(now())
+}
