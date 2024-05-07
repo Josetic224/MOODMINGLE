@@ -10,7 +10,7 @@ app.use(express.json());
 
 // Route handler for handling incoming chat requests
 app.get('/', async(req, res) =>{
-  res.status(200).json("Welcome to MoodMingle Backend")
+  res.status(200).json("Welcome to MoodMingle AI Backend")
 })
 app.post('/chat', async (req, res) => {
   const userId = uuidv4()
