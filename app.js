@@ -3,11 +3,12 @@ const express = require('express');
 const { runChat } = require('./src/ai'); // Import the function to interact with the AI
 const conversation = require('./src/convo.db'); // Import the module to save conversation messages
 const {v4:uuidv4} = require('uuid')
+const cors = require('cors')
 const app = express();
 const port = 3000;
 
 app.use(express.json());
-
+app.use(cors)
 // Route handler for handling incoming chat requests
 app.get('/', async(req, res) =>{
   res.status(200).json("Welcome to MoodMingle AI Backend")
